@@ -112,42 +112,46 @@ class DecideRoute extends StatelessWidget {
                     horizontal: 20,
                     vertical: 10,
                   ),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      DefaultAppBar2(
-                        backgroundColor: Constants.whiteLight,
-                        iconColor: Constants.blackDark,
-                        icon: Icons.menu,
-                        onPressed: () => scaffoldKey.currentState!.openDrawer(),
-                      ),
-                      SizedBox(width: size.width / 10),
-                      if (controller.isDriver.value) ...[
-                        if (controller.isDriverOnline.value) ...[
-                          SizedBox(
-                              width: size.width / 1.5,
-                              height: 55.0,
-                              child: onlineStatusTogg(
-                                  caption: "Go Offline",
-                                  backgroundColor: Constants.blackLight,
-                                  action: () {}))
-                        ] else ...[
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50.0, vertical: 10.0),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                color: Constants.whiteLight),
-                            child: const DefaultText(
-                              text: "Offline",
-                              fontColor: Constants.whiteDark,
-                              size: 18,
-                              weight: FontWeight.w700,
-                            ),
-                          )
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        DefaultAppBar2(
+                          backgroundColor: Constants.whiteLight,
+                          iconColor: Constants.blackDark,
+                          icon: Icons.menu,
+                          onPressed: () =>
+                              scaffoldKey.currentState!.openDrawer(),
+                        ),
+                        SizedBox(width: size.width / 10),
+                        if (controller.isDriver.value) ...[
+                          if (controller.isDriverOnline.value) ...[
+                            SizedBox(
+                                width: size.width / 1.5,
+                                height: 55.0,
+                                child: onlineStatusTogg(
+                                    caption: "Go Offline",
+                                    backgroundColor: Constants.blackLight,
+                                    action: () {}))
+                          ] else ...[
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 50.0, vertical: 10.0),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(25),
+                                  color: Constants.whiteLight),
+                              child: const DefaultText(
+                                text: "Offline",
+                                fontColor: Constants.whiteDark,
+                                size: 18,
+                                weight: FontWeight.w700,
+                              ),
+                            )
+                          ],
                         ],
                       ],
-                    ],
+                    ),
                   ),
                 ),
                 // Current Location - for other users

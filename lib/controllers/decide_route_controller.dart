@@ -4,6 +4,7 @@ import 'package:apex_logistics/components/defaultText.dart';
 import 'package:apex_logistics/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pie_chart/pie_chart.dart';
 import 'package:top_modal_sheet/top_modal_sheet.dart';
 
 class DecideRouteController extends GetxController {
@@ -245,7 +246,59 @@ class DecideRouteController extends GetxController {
               SizedBox(
                 width: size.width / 2.5,
                 height: 300,
-                child: statContainer(),
+                child: statContainer(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: PieChart(
+                          chartRadius: size.width / 4,
+                          initialAngleInDegree: 0,
+                          dataMap: const {
+                            "a": 31.0,
+                            "b": 69.0
+                          }, //a is main value
+                          // centerText: "31%",
+                          centerWidget: const DefaultText(
+                            text: "31%",
+                            fontColor: Constants.primaryNormal,
+                            size: 20.0,
+                          ),
+                          chartType: ChartType.ring,
+                          ringStrokeWidth: 10,
+                          baseChartColor: Colors.grey[50]!.withOpacity(0.15),
+                          colorList: const [
+                            Constants.primaryNormal,
+                            Constants.primaryLight
+                          ],
+                          legendOptions: LegendOptions(
+                            showLegends: false,
+                          ),
+                          chartValuesOptions: ChartValuesOptions(
+                            showChartValues: false,
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 5.0),
+                        child: DefaultText(
+                          text: "Confirmation Rate:\n 31%",
+                          align: TextAlign.center,
+                          fontColor: Constants.primaryNormal,
+                          size: 16.0,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10.0),
+                        child: DefaultText(
+                          text: "Apex",
+                          fontColor: Constants.blackDark,
+                          size: 18.0,
+                          weight: FontWeight.bold,
+                        ),
+                      )
+                    ])),
               ),
               const SizedBox(width: 20.0),
               Expanded(
@@ -255,7 +308,36 @@ class DecideRouteController extends GetxController {
                       width: size.width / 2,
                       // height: 150,
                       child: statContainer(
-                          backgroundColor: Constants.primaryNormal),
+                          backgroundColor: Constants.primaryNormal,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 15.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  "assets/images/earnings.png",
+                                  width: 30,
+                                  height: 30,
+                                ),
+                                const SizedBox(height: 10.0),
+                                const DefaultText(
+                                  text: "Today's Earnings",
+                                  fontColor: Constants.whiteLight,
+                                ),
+                                const SizedBox(height: 5.0),
+                                const Expanded(
+                                  child: DefaultText(
+                                    text: "N12,000",
+                                    size: 18.0,
+                                    fontColor: Constants.whiteLight,
+                                    weight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )),
                     ),
                   ),
                   const SizedBox(height: 20.0),
@@ -264,12 +346,25 @@ class DecideRouteController extends GetxController {
                       width: size.width / 2,
                       height: 300,
                       child: statContainer(
-                          child: const Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          DefaultText(text: "Driver's Score"),
-                        ],
+                          child: const Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 20.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            DefaultText(
+                              text: "Driver's Score",
+                              fontColor: Constants.blackDark,
+                              weight: FontWeight.w600,
+                            ),
+                            SizedBox(height: 10.0),
+                            DefaultText(
+                                text: "33%",
+                                size: 18.0,
+                                weight: FontWeight.bold),
+                          ],
+                        ),
                       )),
                     ),
                   ),
