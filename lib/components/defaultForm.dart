@@ -20,6 +20,7 @@ class DefaultForm extends StatelessWidget {
   final Widget? suffixIcon;
   final Function()? onTap;
   final Function(String?)? onChanged;
+  final EdgeInsetsGeometry? contentPadding;
 
   const DefaultForm({
     this.keyboardType = TextInputType.name,
@@ -39,6 +40,7 @@ class DefaultForm extends StatelessWidget {
     this.suffixIcon = const SizedBox.shrink(),
     this.onTap,
     this.onChanged,
+    this.contentPadding,
   });
 
   @override
@@ -57,6 +59,7 @@ class DefaultForm extends StatelessWidget {
       ),
       decoration: InputDecoration(
         // border: InputBorder.none,
+        contentPadding: contentPadding,
         labelText: label,
         prefixIcon: icon,
         suffixIcon: suffixIcon,

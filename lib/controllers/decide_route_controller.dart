@@ -232,10 +232,10 @@ class DecideRouteController extends GetxController {
   driverStats(Size size) {
     return Container(
         width: size.width,
-        height: size.height / 2.8,
+        height: size.height / 2.5,
         decoration: const BoxDecoration(
           color: Constants.whiteLight,
-          borderRadius: const BorderRadius.all(
+          borderRadius: BorderRadius.all(
             Radius.circular(10),
           ),
         ),
@@ -272,10 +272,10 @@ class DecideRouteController extends GetxController {
                             Constants.primaryNormal,
                             Constants.primaryLight
                           ],
-                          legendOptions: LegendOptions(
+                          legendOptions: const LegendOptions(
                             showLegends: false,
                           ),
-                          chartValuesOptions: ChartValuesOptions(
+                          chartValuesOptions: const ChartValuesOptions(
                             showChartValues: false,
                           ),
                         ),
@@ -321,7 +321,8 @@ class DecideRouteController extends GetxController {
                                   width: 30,
                                   height: 30,
                                 ),
-                                const SizedBox(height: 10.0),
+                                const Expanded(
+                                    child: SizedBox(height: 10.0)),
                                 const DefaultText(
                                   text: "Today's Earnings",
                                   fontColor: Constants.whiteLight,

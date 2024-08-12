@@ -32,7 +32,10 @@ class AddCard extends StatelessWidget {
                         controller: controller.cardNumberController,
                         borderWidth: 5,
                         focusedBorderColor: Constants.primaryNormal,
-                        icon: controller.cardTypeIcon.value,
+                        icon: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: controller.cardTypeIcon.value,
+                        ),
                         hintText: "Card Number",
                         keyboardType: TextInputType.number,
                         inputFormatter: [
